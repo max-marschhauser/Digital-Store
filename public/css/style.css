@@ -20,6 +20,7 @@
   font-size: inherit;
   font-size: 100%;
   scroll-behavior: smooth;
+  cursor: default;
 }
 
 .navbar {
@@ -36,6 +37,7 @@
   padding: 0.5rem 1rem;
   text-decoration: none;
   color: var(--color-primary);
+  cursor: pointer;
 }
 .navbar__item:hover, .navbar__item:focus {
   opacity: 0.75;
@@ -53,21 +55,22 @@
 
 .hero {
   background-color: var(--color-light);
-  background-blend-mode: multiply;
 }
 .hero__image {
   margin: 0 auto;
   max-width: 75rem;
+  box-shadow: 50vw 0rem 0 0 var(--color-light), -50vw 0rem 0 0 var(--color-light);
   background-image: url("../img/store2.jpg");
   background-position: center center;
   background-repeat: no-repeat;
+  background-size: cover;
   aspect-ratio: 16/9;
   display: grid;
   place-items: center;
 }
 @media only screen and (min-width: 600px) and (min-height: 0px) {
   .hero__image {
-    aspect-ratio: 25/9;
+    aspect-ratio: 3/1;
   }
 }
 .hero__image__text {
@@ -81,22 +84,53 @@
   }
 }
 
+.info {
+  padding: 0.5rem;
+  background-color: var(--color-dark);
+  color: var(--color-primary);
+}
+.info__item {
+  padding: 0.25rem;
+  text-align: center;
+}
+.info__item span {
+  font-style: italic;
+}
+
 main {
   background-color: var(--color-light);
   border-block: 1px solid var(--color-dark);
-  padding-block: 1rem;
+  padding-block: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  width: 100vw;
+  gap: 2rem;
 }
 main h2 {
   font-weight: bold;
+  font-size: 1.5rem;
 }
 main .albums {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 1rem;
+  gap: 2rem;
+}
+@media only screen and (min-width: 600px) and (min-height: 0px) {
+  main .albums {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+}
+@media only screen and (min-width: 900px) and (min-height: 0px) {
+  main .albums {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6rem;
+  }
+}
+@media only screen and (min-width: 1200px) and (min-height: 0px) {
+  main .albums {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8rem;
+  }
 }
