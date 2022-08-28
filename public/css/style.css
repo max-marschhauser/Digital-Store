@@ -27,6 +27,7 @@
   position: sticky;
   top: 0;
   padding-block: 0.25rem;
+  border-bottom: 1px solid var(--color-primary);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -38,9 +39,11 @@
   text-decoration: none;
   color: var(--color-primary);
   cursor: pointer;
+  transition: all 0.5s ease;
 }
 .navbar__item:hover, .navbar__item:focus {
-  opacity: 0.75;
+  opacity: 0.5;
+  transform: scale(1.1);
 }
 @media only screen and (min-width: 600px) and (min-height: 0px) {
   .navbar__item {
@@ -133,4 +136,29 @@ main .albums {
     grid-template-columns: repeat(4, 1fr);
     gap: 8rem;
   }
+}
+main .albums__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+main .albums__item img {
+  border-radius: 1rem;
+}
+main .albums__item h3 {
+  font-weight: bold;
+}
+main .albums__item button {
+  padding: 1rem;
+  background-color: var(--color-dark);
+  color: var(--color-primary);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+main .albums__item button:hover, main .albums__item button:focus {
+  color: var(--color-light);
+  transform: scale(1.1);
 }
