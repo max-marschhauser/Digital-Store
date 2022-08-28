@@ -175,4 +175,9 @@ main .albums__item button:hover, main .albums__item button:focus {
   text-decoration: none;
   color: var(--color-primary);
   cursor: pointer;
+  transition: all 0.5s ease;
+}
+.info a:hover, .info a:focus {
+  color: var(--color-light);
+  transform: scale(1.1);
 }
