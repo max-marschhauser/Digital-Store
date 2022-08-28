@@ -87,19 +87,6 @@
   }
 }
 
-.info {
-  padding: 0.5rem;
-  background-color: var(--color-dark);
-  color: var(--color-primary);
-}
-.info__item {
-  padding: 0.25rem;
-  text-align: center;
-}
-.info__item span {
-  font-style: italic;
-}
-
 main {
   background-color: var(--color-light);
   border-block: 1px solid var(--color-dark);
@@ -161,4 +148,31 @@ main .albums__item button {
 main .albums__item button:hover, main .albums__item button:focus {
   color: var(--color-light);
   transform: scale(1.1);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--color-dark);
+  color: var(--color-primary);
+}
+.info__item {
+  padding: 0.25rem;
+  text-align: center;
+  letter-spacing: 1.1px;
+}
+.info__item span {
+  font-style: italic;
+}
+.info h2 {
+  font-size: 1.5rem;
+}
+.info a {
+  text-decoration: none;
+  color: var(--color-primary);
+  cursor: pointer;
 }
