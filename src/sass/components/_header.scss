@@ -1,0 +1,42 @@
+@use "../abstracts" as abs;
+
+.navbar {
+    position: sticky;
+    top: 0;
+
+    padding-block: 0.25rem;
+    border-bottom: 1px solid var(--color-primary);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-color: var(--color-dark);
+
+    &__item {
+        padding: 0.5rem 1rem;
+
+        text-decoration: none;
+        color: var(--color-primary);
+
+        cursor: pointer;
+
+        transition: all 0.5s ease;
+
+        &:hover,
+        &:focus {
+            opacity: 0.5;
+
+            transform: scale(1.1);
+        }
+
+        @include abs.mq(600px, 0px) {
+            font-size: 1.2rem;
+        }
+
+        @include abs.mq(1200px, 0px) {
+            font-size: 1.5rem;
+        }
+    }
+}
