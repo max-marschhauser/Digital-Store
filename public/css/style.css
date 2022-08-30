@@ -2,7 +2,7 @@
   font-family: "Montserrat", sans-serif;
   --color-dark: hsl(0, 0%, 25%);
   --color-dark-transparent: hsla(0, 0%, 25%, 0.9);
-  --color-light: hsl(0, 0%, 90%);
+  --color-light: hsl(0, 0%, 95%);
   --color-light-transparent: hsla(0, 0%, 90%, 0.9);
   --color-primary: hsl(175, 100%, 50%);
 }
@@ -146,8 +146,7 @@ main .albums__item button {
   transition: all 0.5s ease;
 }
 main .albums__item button:hover, main .albums__item button:focus {
-  color: var(--color-light);
-  transform: scale(1.1);
+  opacity: 0.9;
 }
 
 .info {
