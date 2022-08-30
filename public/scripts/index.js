@@ -36,7 +36,7 @@ function addItemToCart(title, author, year, price, imageSrc) {
             <p>${author}</p>
             <p>${year}</p>
         </div>
-        <div>${price}</div>
+        <div data-selected-price>${price}</div>
         <input class="cart__row--quantity" type="number" value="1" />
         <button class="cart__row--remove" type="button" data-remove-button>Remove</button>`;
 
@@ -48,9 +48,32 @@ function addItemToCart(title, author, year, price, imageSrc) {
 
     let remove = document.querySelectorAll("[data-remove-button");
     remove.forEach((item) => item.addEventListener("click", removeRow));
+
+    updatePrice();
 }
 
 function removeRow(event) {
     let buttonClicked = event.target;
     buttonClicked.parentElement.remove();
+
+    updatePrice();
+}
+
+function updatePrice() {
+    let selectedItemsPrices = document.querySelectorAll("[data-selected-price]");
+
+    let total = 0;
+    let currentPrice = 0;
+
+    for (let i = 0; i < selectedItemsPrices.length; i++) {
+        currentPrice = Number(selectedItemsPrices[i].innerHTML.slice(0, -1));
+
+        total += currentPrice;
+        total = Number(total.toFixed(2));
+    }
+
+    total += "€";
+
+    let totalPrice = document.querySelector("[data-total-price]");
+    totalPrice.innerText = total;
 }
