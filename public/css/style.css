@@ -41,7 +41,7 @@
   cursor: pointer;
   transition: all 0.5s ease;
 }
-.navbar__item:hover, .navbar__item:focus {
+.navbar__item:hover, .navbar__item:focus-visible {
   opacity: 0.5;
   transform: scale(1.1);
 }
@@ -184,4 +184,88 @@ main .albums__item button:hover, main .albums__item button:focus-visible {
 
 .cart {
   background-color: var(--color-light);
+  max-width: 80rem;
+  margin: 0 auto;
+  box-shadow: 50vw 0rem 0 0 var(--color-light), -50vw 0rem 0 0 var(--color-light);
+}
+.cart h2 {
+  padding-top: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+.cart__row {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  padding-block: 0.5rem;
+  border-bottom: 1px solid var(--color-dark);
+}
+.cart__row h3 {
+  font-size: 1.2;
+  font-weight: bold;
+}
+.cart__row--item {
+  text-align: center;
+}
+.cart__row--quantity {
+  height: 2rem;
+  width: 3rem;
+  border-radius: 0.75rem;
+  border: 0.15rem solid var(--color-dark);
+  background-color: var(--color-light);
+  color: #333;
+  text-align: center;
+  font-size: 1.2em;
+  caret-color: var(--color-dark);
+}
+.cart__row--remove {
+  padding: 0.5rem;
+  border-radius: 50vmax;
+  background-color: var(--color-dark);
+  font-weight: bold;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+@media only screen and (min-width: 600px) and (min-height: 0px) {
+  .cart__row--remove {
+    padding: 1rem;
+  }
+}
+.cart__row--remove:hover, .cart__row--remove:focus-visible {
+  opacity: 0.8;
+}
+.cart__total {
+  padding: 1rem 2rem;
+  text-align: right;
+  word-spacing: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
+.cart__total span {
+  font-weight: normal;
+}
+.cart__purchase {
+  display: grid;
+  place-items: center;
+}
+.cart__purchase__button {
+  margin-bottom: 0.75rem;
+  padding: 0.65rem;
+  border-radius: 50vmax;
+  background-color: var(--color-dark);
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+@media only screen and (min-width: 600px) and (min-height: 0px) {
+  .cart__purchase__button {
+    padding: 1.25rem;
+  }
+}
+.cart__purchase__button:hover, .cart__purchase__button:focus-visible {
+  opacity: 0.8;
 }

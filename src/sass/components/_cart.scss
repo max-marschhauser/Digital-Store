@@ -1,0 +1,115 @@
+@use "../abstracts" as abs;
+
+.cart {
+    background-color: var(--color-light);
+    max-width: 80rem;
+    margin: 0 auto;
+
+    box-shadow: 50vw 0rem 0 0 var(--color-light), -50vw 0rem 0 0 var(--color-light);
+
+    h2 {
+        padding-top: 1rem;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    &__row {
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(4, 1fr);
+
+        padding-block: 0.5rem;
+        border-bottom: 1px solid var(--color-dark);
+
+        h3 {
+            font-size: 1.2;
+            font-weight: bold;
+        }
+
+        &--item {
+            text-align: center;
+        }
+
+        &--quantity {
+            height: 2rem;
+            width: 3rem;
+            border-radius: 0.75rem;
+            border: 0.15rem solid var(--color-dark);
+
+            background-color: var(--color-light);
+
+            color: #333;
+            text-align: center;
+            font-size: 1.2em;
+            caret-color: var(--color-dark);
+        }
+
+        &--remove {
+            padding: 0.5rem;
+
+            @include abs.mq(600px, 0px) {
+                padding: 1rem;
+            }
+
+            border-radius: 50vmax;
+
+            background-color: var(--color-dark);
+
+            font-weight: bold;
+            color: var(--color-primary);
+
+            cursor: pointer;
+
+            transition: all 0.5s ease;
+
+            &:hover,
+            &:focus-visible {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    &__total {
+        padding: 1rem 2rem;
+
+        text-align: right;
+        word-spacing: 1rem;
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+        span {
+            font-weight: normal;
+        }
+    }
+
+    &__purchase {
+        display: grid;
+        place-items: center;
+
+        &__button {
+            margin-bottom: 0.75rem;
+            padding: 0.65rem;
+
+            @include abs.mq(600px, 0px) {
+                padding: 1.25rem;
+            }
+
+            border-radius: 50vmax;
+
+            background-color: var(--color-dark);
+
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+
+            cursor: pointer;
+
+            transition: all 0.5s ease;
+
+            &:hover,
+            &:focus-visible {
+                opacity: 0.8;
+            }
+        }
+    }
+}
