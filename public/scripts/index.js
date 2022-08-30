@@ -14,25 +14,43 @@ function clickedAddToCart(event) {
     let imageSrc = shopItem.querySelector("[data-image]").src;
 
     addItemToCart(title, author, year, price, imageSrc);
-    //updateCartTotal();
-    console.log(title, author, year, imageSrc, price);
 }
 
 function addItemToCart(title, author, year, price, imageSrc) {
-    let cartRow = document.createElement("div");
-    //cartRow.classList.add("cart-row");
-    let cartItems = document.getElementsByClassName("cart-items")[0];
-    /*var cartItemNames = cartItems.getElementsByClassName("cart-item-title");
-    for (var i = 0; i < cartItemNames.length; i++) {
-        if (cartItemNames[i].innerText == title) {
+    let cartItemNames = document.querySelectorAll("[data-selectedTitle]");
+
+    for (let i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText === title) {
             alert("This item is already added to the cart");
             return;
         }
-    }*/
-    /*var cartRowContents = `
-        
-    cartRow.innerHTML = cartRowContents;*/
-    cartItems.append(cartRow);
-    //cartRow.getElementsByClassName("btn-danger")[0].addEventListener("click", removeCartItem);
-    //cartRow.getElementsByClassName("cart-quantity-input")[0].addEventListener("change", quantityChanged);
+    }
+
+    let cartRow = document.createElement("div");
+    cartRow.classList.add("cart__row");
+
+    let cartRowContents = `
+        <div class="cart__row--item">
+            <img src="${imageSrc}" width="50px" height="50px" />
+            <p data-selectedTitle>${title}</p>
+            <p>${author}</p>
+            <p>${year}</p>
+        </div>
+        <div>${price}</div>
+        <input class="cart__row--quantity" type="number" value="1" />
+        <button class="cart__row--remove" type="button" data-remove-button>Remove</button>`;
+
+    cartRow.innerHTML = cartRowContents;
+
+    let selectedProducts = document.querySelector("[data-selected-products]");
+
+    selectedProducts.append(cartRow);
+
+    let remove = document.querySelectorAll("[data-remove-button");
+    remove.forEach((item) => item.addEventListener("click", removeRow));
+}
+
+function removeRow(event) {
+    let buttonClicked = event.target;
+    buttonClicked.parentElement.remove();
 }
