@@ -77,3 +77,20 @@ function updatePrice() {
     let totalPrice = document.querySelector("[data-total-price]");
     totalPrice.innerText = total;
 }
+
+let purchaseButton = document.querySelector("[data-purchase-button]");
+
+purchaseButton.addEventListener("click", purchaseClicked);
+
+function purchaseClicked() {
+    alert("Thank you for your purchase");
+    //remove all selected items
+
+    /*
+        var cartItems = document.getElementsByClassName("cart-items")[0];
+    while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild);
+    }
+    */
+    updatePrice();
+}
