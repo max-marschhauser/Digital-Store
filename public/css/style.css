@@ -139,14 +139,15 @@ main .albums__item h3 {
 }
 main .albums__item button {
   padding: 1rem;
+  border-radius: 50vmax;
   background-color: var(--color-dark);
   color: var(--color-primary);
   font-weight: bold;
   cursor: pointer;
   transition: all 0.5s ease;
 }
-main .albums__item button:hover, main .albums__item button:focus {
-  opacity: 0.9;
+main .albums__item button:hover, main .albums__item button:focus-visible {
+  opacity: 0.8;
 }
 
 .info {
@@ -179,4 +180,8 @@ main .albums__item button:hover, main .albums__item button:focus {
 .info a:hover, .info a:focus {
   color: var(--color-light);
   transform: scale(1.1);
+}
+
+.cart {
+  background-color: var(--color-light);
 }

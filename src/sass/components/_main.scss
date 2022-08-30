@@ -54,6 +54,7 @@ main {
 
             button {
                 padding: 1rem;
+                border-radius: 50vmax;
 
                 background-color: var(--color-dark);
 
@@ -65,9 +66,9 @@ main {
                 transition: all 0.5s ease;
 
                 &:hover,
-                &:focus {
-                    opacity:.9;
-}
+                &:focus-visible {
+                    opacity: 0.8;
+                }
             }
         }
     }
