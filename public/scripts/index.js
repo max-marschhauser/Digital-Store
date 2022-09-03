@@ -1,3 +1,5 @@
+// ADD ITEM TO CART
+
 const buttons = document.querySelectorAll("[data-addToCart]");
 
 buttons.forEach((button) => {
@@ -37,7 +39,7 @@ function addItemToCart(title, author, year, price, imageSrc) {
             <p>${year}</p>
         </div>
         <div data-selected-price>${price}</div>
-        <input class="cart__row--quantity" type="number" value="1" />
+        <input class="cart__row--quantity" type="number" value="1" data-quantity/>
         <button class="cart__row--remove" type="button" data-remove-button>Remove</button>`;
 
     cartRow.innerHTML = cartRowContents;
@@ -49,8 +51,13 @@ function addItemToCart(title, author, year, price, imageSrc) {
     let remove = document.querySelectorAll("[data-remove-button");
     remove.forEach((item) => item.addEventListener("click", removeRow));
 
+    let quantity = document.querySelectorAll("[data-quantity]");
+    quantity.forEach((item) => item.addEventListener("change", changeQuantity));
+
     updatePrice();
 }
+
+// REMOVE ROW BUTTON
 
 function removeRow(event) {
     let buttonClicked = event.target;
@@ -58,6 +65,20 @@ function removeRow(event) {
 
     updatePrice();
 }
+
+// QUANTITY CHANGE
+
+function changeQuantity(item) {
+    item.target.value;
+
+    if (item.target.value <= 0 || isNaN(item.target.value)) {
+        item.target.value = 1;
+    }
+
+    updatePrice();
+}
+
+// UPDATE PRICE
 
 function updatePrice() {
     let selectedItemsPrices = document.querySelectorAll("[data-selected-price]");
@@ -68,7 +89,10 @@ function updatePrice() {
     for (let i = 0; i < selectedItemsPrices.length; i++) {
         currentPrice = Number(selectedItemsPrices[i].innerHTML.slice(0, -1));
 
-        total += currentPrice;
+        let selectedRow = selectedItemsPrices[i].parentElement;
+        let quantity = selectedRow.querySelector("[data-quantity]");
+
+        total += currentPrice * quantity.value;
         total = Number(total.toFixed(2));
     }
 
@@ -78,8 +102,9 @@ function updatePrice() {
     totalPrice.innerText = total;
 }
 
-let purchaseButton = document.querySelector("[data-purchase-button]");
+// PURCHASE BUTTON
 
+let purchaseButton = document.querySelector("[data-purchase-button]");
 purchaseButton.addEventListener("click", purchaseClicked);
 
 function purchaseClicked() {
@@ -94,5 +119,3 @@ function purchaseClicked() {
 
     updatePrice();
 }
-
-// add quantity change --> updatePrice() + add that quantity cannot be negative or zero
