@@ -30,7 +30,7 @@ function addItemToCart(title, author, year, price, imageSrc) {
     cartRow.classList.add("cart__row");
 
     let cartRowContents = `
-        <div class="cart__row--item">
+        <div class="cart__row--item" data-selectedItems>
             <img src="${imageSrc}" width="50px" height="50px" />
             <p data-selectedTitle>${title}</p>
             <p>${author}</p>
@@ -84,16 +84,15 @@ purchaseButton.addEventListener("click", purchaseClicked);
 
 function purchaseClicked() {
     alert("Thank you for your purchase");
-    //remove all selected items
 
-    /*
-        var cartItems = document.getElementsByClassName("cart-items")[0];
-    while (cartItems.hasChildNodes()) {
-        cartItems.removeChild(cartItems.firstChild);
+    let selectedItems = document.querySelectorAll("[data-selectedItems]");
+    selectedItems.forEach(purchaseItems);
+
+    function purchaseItems(item) {
+        item.parentElement.remove();
     }
-    */
+
     updatePrice();
 }
-
 
 // add quantity change --> updatePrice() + add that quantity cannot be negative or zero
