@@ -94,3 +94,6 @@ function purchaseClicked() {
     */
     updatePrice();
 }
+
+
+// add quantity change --> updatePrice() + add that quantity cannot be negative or zero
