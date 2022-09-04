@@ -1,6 +1,6 @@
 // ADD ITEM TO CART
 
-const buttons = document.querySelectorAll("[data-addToCart]");
+const buttons = document.querySelectorAll("[data-data-add-to-cart]");
 
 buttons.forEach((button) => {
     button.addEventListener("click", clickedAddToCart);
@@ -19,7 +19,7 @@ function clickedAddToCart(event) {
 }
 
 function addItemToCart(title, author, year, price, imageSrc) {
-    let cartItemNames = document.querySelectorAll("[data-selectedTitle]");
+    let cartItemNames = document.querySelectorAll("[data-selected-title]");
 
     for (let i = 0; i < cartItemNames.length; i++) {
         if (cartItemNames[i].innerText === title) {
@@ -32,9 +32,9 @@ function addItemToCart(title, author, year, price, imageSrc) {
     cartRow.classList.add("cart__row");
 
     let cartRowContents = `
-        <div class="cart__row--item" data-selectedItems>
+        <div class="cart__row--item" data-selected-items>
             <img src="${imageSrc}" width="50px" height="50px" />
-            <p data-selectedTitle>${title}</p>
+            <p data-selected-title>${title}</p>
             <p>${author}</p>
             <p>${year}</p>
         </div>
@@ -110,7 +110,7 @@ purchaseButton.addEventListener("click", purchaseClicked);
 function purchaseClicked() {
     alert("Thank you for your purchase");
 
-    let selectedItems = document.querySelectorAll("[data-selectedItems]");
+    let selectedItems = document.querySelectorAll("[data-selected-items]");
     selectedItems.forEach(purchaseItems);
 
     function purchaseItems(item) {
