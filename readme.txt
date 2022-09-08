@@ -1,0 +1,3 @@
+- u JS dodati module --> podijeliti kod na manje jedinice
+- umjesto nabrajanja albuma u HTML-u, pokušati ih postaviti uz pomoć JSON-a, a u HTML-u možda iskoristiti <template>
+- sitni ispravci iz komentara u pojedinim fileovima
