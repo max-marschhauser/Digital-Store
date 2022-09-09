@@ -9,6 +9,7 @@ export function displayAlbums(albumList) {
         let albums = document.querySelector("[data-albums]");
         let albumRow = document.createElement("div");
         albumRow.classList.add("albums__item");
+        albumRow.setAttribute("data-albums-item", "");
 
         let albumRowContents = `<img data-image src="${item.imgSrc}" width="150px" height="150px" />
         <h3 data-title>${item.title}</h3>
