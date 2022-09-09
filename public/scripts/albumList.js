@@ -13,7 +13,7 @@ export let albumList = [
         author: "Pink Floyd",
         year: 1973,
         price: 19.99,
-        imgSrc: "img/albums/Pink_Floyd/Dark_Side_of_the_Moon.png",
+        imgSrc: "img/albums/Pink_Floyd/Dark_Side_of_the_Moon.jpg",
     },
     {
         title: "Paranoid",
