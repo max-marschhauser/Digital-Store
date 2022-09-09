@@ -44,6 +44,10 @@ main {
             align-items: center;
             gap: 0.5rem;
 
+            &__hide {
+                display: none;
+            }
+
             img {
                 border-radius: 1rem;
                 outline: 1px solid var(--color-dark);
