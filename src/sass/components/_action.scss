@@ -38,6 +38,8 @@
 .options {
     height: 0;
 
+    background-color: var(--color-light);
+
     text-align: center;
     color: var(--color-dark);
 
@@ -46,15 +48,16 @@
     transform-origin: top;
 
     &__show {
-        padding-block: 0.2rem;
+        padding-block: 0.5rem;
         height: 10rem;
+
         transform: scaleY(1);
     }
 
     h3 {
         font-size: 1.5rem;
         font-weight: bold;
-        padding-block: 1rem;
+        padding-block: 1.1rem;
     }
 
     #search {

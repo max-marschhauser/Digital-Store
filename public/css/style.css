@@ -23,6 +23,10 @@
   cursor: default;
 }
 
+body {
+  background-color: var(--color-light);
+}
+
 .navbar {
   position: sticky;
   top: 0;
@@ -118,6 +122,7 @@
 
 .options {
   height: 0;
+  background-color: var(--color-light);
   text-align: center;
   color: var(--color-dark);
   transform: scaleY(0);
@@ -125,14 +130,14 @@
   transform-origin: top;
 }
 .options__show {
-  padding-block: 0.2rem;
+  padding-block: 0.5rem;
   height: 10rem;
   transform: scaleY(1);
 }
 .options h3 {
   font-size: 1.5rem;
   font-weight: bold;
-  padding-block: 1rem;
+  padding-block: 1.1rem;
 }
 .options #search {
   border: 1px solid var(--color-dark);

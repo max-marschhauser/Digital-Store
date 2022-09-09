@@ -1,4 +1,5 @@
 - u footeru dodati social icons
 - u footeru dodati copyright year
-- dodati još albuma na stranicu
-- napraviti search i/ili filter u js
+- napraviti filter
+- napraviti sort
+- add favicon
