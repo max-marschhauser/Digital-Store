@@ -1,4 +1,4 @@
-import { updatePrice } from "./updatePrice.js";
+// placing items into cart, removing items from cart, managing price, quantity and purchase button
 
 // ADD ITEM TO CART
 
@@ -7,7 +7,7 @@ buttons.forEach((button) => {
     button.addEventListener("click", clickedAddToCart);
 });
 
-export function clickedAddToCart(event) {
+function clickedAddToCart(event) {
     let button = event.target;
     let shopItem = button.parentElement;
     let title = shopItem.querySelector("[data-title]").innerText;
@@ -19,7 +19,7 @@ export function clickedAddToCart(event) {
     addItemToCart(title, author, year, price, imageSrc);
 }
 
-export function addItemToCart(title, author, year, price, imageSrc) {
+function addItemToCart(title, author, year, price, imageSrc) {
     let cartItemNames = document.querySelectorAll("[data-selected-title]");
 
     for (let i = 0; i < cartItemNames.length; i++) {
@@ -60,7 +60,7 @@ export function addItemToCart(title, author, year, price, imageSrc) {
 
 // REMOVE ROW BUTTON
 
-export function removeRow(event) {
+function removeRow(event) {
     let buttonClicked = event.target;
     buttonClicked.parentElement.remove();
 
@@ -69,11 +69,63 @@ export function removeRow(event) {
 
 // QUANTITY CHANGE
 
-export function changeQuantity(item) {
+function changeQuantity(item) {
     item.target.value;
 
     if (item.target.value <= 0 || isNaN(item.target.value)) {
         item.target.value = 1;
+    }
+
+    updatePrice();
+}
+
+// UPDATE PRICE
+
+function updatePrice() {
+    let selectedItemsPrices = document.querySelectorAll("[data-selected-price]");
+
+    let total = 0;
+    let currentPrice = 0;
+
+    for (let i = 0; i < selectedItemsPrices.length; i++) {
+        currentPrice = Number(selectedItemsPrices[i].innerHTML.slice(0, -1));
+
+        let selectedRow = selectedItemsPrices[i].parentElement;
+        let quantity = selectedRow.querySelector("[data-quantity]");
+
+        total += currentPrice * quantity.value;
+        total = Number(total.toFixed(2));
+    }
+
+    total += "€";
+
+    if (total === "0€") {
+        total = "0.00€";
+    }
+
+    let totalPrice = document.querySelector("[data-total-price]");
+    totalPrice.innerText = total;
+}
+
+// PURCHASE BUTTON
+
+let purchaseButton = document.querySelector("[data-purchase-button]");
+purchaseButton.addEventListener("click", purchaseClicked);
+
+function purchaseClicked() {
+    let price = document.querySelector("[data-total-price]");
+
+    if (price.innerHTML === "0.00€") {
+        alert("Please select products to purchase.");
+    } else {
+        alert("Thank you for your purchase.");
+    }
+
+    let selectedItems = document.querySelectorAll("[data-selected-items]");
+    selectedItems.forEach(purchaseItems);
+
+    function purchaseItems(item) {
+        item.parentElement.remove();
     }
 
     updatePrice();

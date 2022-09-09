@@ -1,3 +1,5 @@
+// placing items into cart, removing items from cart, managing price, quantity and purchase button
+
 // ADD ITEM TO CART
 
 const buttons = document.querySelectorAll("[data-add-to-cart]");

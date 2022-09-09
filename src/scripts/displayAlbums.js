@@ -1,6 +1,6 @@
 import { albumList } from "./albumList.js";
 
-displayAlbums(albumList);
+// display albums from albumList.js onto the site
 
 export function displayAlbums(albumList) {
     albumList.forEach((item) => createAlbum(item));
@@ -23,3 +23,5 @@ export function displayAlbums(albumList) {
         albums.append(albumRow);
     }
 }
+
+displayAlbums(albumList);

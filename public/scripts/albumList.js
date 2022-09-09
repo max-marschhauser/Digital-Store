@@ -1,4 +1,4 @@
-// file contains list of albums that are displayed on site
+// file contains list of albums that should be displayed on site
 
 export let albumList = [
     {
