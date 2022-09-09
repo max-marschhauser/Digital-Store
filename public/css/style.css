@@ -88,6 +88,46 @@
   }
 }
 
+.action {
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--color-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--color-light);
+}
+@media only screen and (min-width: 360px) and (min-height: 0px) {
+  .action {
+    flex-direction: row;
+  }
+}
+.action__button {
+  border: 1px solid var(--color-dark);
+  padding: 1rem 2rem;
+  border-radius: 50vmax;
+  background-color: var(--color-dark);
+  color: var(--color-primary);
+  font-weight: bold;
+  transition: all 0.25s ease;
+}
+.action__button:hover, .action__button:focus-visible {
+  opacity: 0.8;
+}
+
+.options {
+  height: 0;
+  transform: scaleY(0);
+  transition: all 0.5s ease;
+  transform-origin: top;
+}
+
+.options__show {
+  height: 2rem;
+  transform: scaleY(1);
+}
+
 main {
   background-color: var(--color-light);
   border-block: 1px solid var(--color-dark);
