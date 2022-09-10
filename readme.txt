@@ -5,3 +5,5 @@
 - add favicon
 - using local/session storage create new page after purchase button is pressed which contains information about buyer. Then after submit button is pressed return to the main page
 - create two other sites (navbar manu)
+- sa lijeve strane postaviti tipke da se scrolla dolje do carta i gore do početka izbora albuma
+- dodati intersection observer za učitevanje albuma na stranici
