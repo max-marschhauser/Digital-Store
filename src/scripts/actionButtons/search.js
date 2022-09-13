@@ -1,3 +1,5 @@
+// search action button
+
 let searchInput = document.querySelector("[data-search-input]");
 let albums = document.querySelectorAll("[data-albums-item]");
 
