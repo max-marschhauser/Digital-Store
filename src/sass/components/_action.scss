@@ -1,69 +1,105 @@
 @use "../abstracts" as abs;
 
 .action {
-    padding-block: 1rem;
-    border-bottom: 1px solid var(--color-dark);
+	padding-block: 1rem;
+	border-bottom: 1px solid var(--color-dark);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 1rem;
 
-    background-color: var(--color-light);
+	background-color: var(--color-light);
 
-    @include abs.mq(360px, 0px) {
-        flex-direction: row;
-    }
+	@include abs.mq(360px, 0px) {
+		flex-direction: row;
+	}
 
-    &__button {
-        border: 1px solid var(--color-dark);
-        padding: 1rem 2rem;
-        border-radius: 50vmax;
+	&__button {
+		border: 1px solid var(--color-dark);
+		padding: 1rem 2rem;
+		border-radius: 50vmax;
 
-        background-color: var(--color-dark);
+		background-color: var(--color-dark);
 
-        color: var(--color-primary);
-        font-weight: bold;
+		color: var(--color-primary);
+		font-weight: bold;
 
-        transition: all 0.25s ease;
+		transition: all 0.25s ease;
 
-        &:hover,
-        &:focus-visible {
-            opacity: 0.8;
-        }
-    }
+		&:hover,
+		&:focus-visible {
+			opacity: 0.8;
+		}
+	}
 }
 
 .options {
-    height: 0;
+	height: 0;
 
-    background-color: var(--color-light);
+	background-color: var(--color-light);
 
-    text-align: center;
-    color: var(--color-dark);
+	text-align: center;
+	color: var(--color-dark);
 
-    transform: scaleY(0);
-    transition: all 0.5s ease;
-    transform-origin: top;
+	transform: scaleY(0);
+	transition: all 0.5s ease;
+	transform-origin: top;
 
-    &__show {
-        padding-block: 0.5rem;
-        height: 10rem;
+	&__show {
+		padding-block: 0.5rem;
+		height: 15rem;
 
-        transform: scaleY(1);
-    }
+		transform: scaleY(1);
+	}
 
-    h3 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        padding-block: 1.1rem;
-    }
+	h3 {
+		font-size: 1.5rem;
+		font-weight: bold;
+		padding-block: 0.5rem;
+	}
 
-    #search {
-        border: 1px solid var(--color-dark);
-        padding: 0.5rem;
+	#search {
+		border: 1px solid var(--color-dark);
+		padding: 0.5rem;
 
-        font-size: 1.25rem;
-    }
+		font-size: 1.25rem;
+	}
+
+	&__form {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+
+		&__column {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 0.5rem;
+
+			h4 {
+				font-weight: bold;
+				padding-bottom: 0.5rem;
+			}
+		}
+	}
+
+	button {
+		margin-top: 1rem;
+		padding: 1rem 1.5rem;
+		border-radius: 50vmax;
+
+		background-color: var(--color-dark);
+
+		color: var(--color-primary);
+		font-weight: bold;
+
+		transition: all 0.25s ease;
+
+		&:hover,
+		&:focus-visible {
+			opacity: 0.8;
+		}
+	}
 }

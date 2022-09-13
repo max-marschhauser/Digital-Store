@@ -1,80 +1,86 @@
 @use "../abstracts" as abs;
 
 main {
-    background-color: var(--color-light);
-    border-block: 1px solid var(--color-dark);
-    padding-block: 2rem;
+	background-color: var(--color-light);
+	border-block: 1px solid var(--color-dark);
+	padding-block: 2rem;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
-    gap: 2rem;
+	gap: 2rem;
 
-    h2 {
-        font-weight: bold;
-        font-size: 1.5rem;
-    }
+	h2 {
+		font-weight: bold;
+		font-size: 1.5rem;
+	}
 
-    .albums {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 2rem;
+	.albums {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 2rem;
 
-        @include abs.mq(600px, 0px) {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 4rem;
-        }
+		@include abs.mq(600px, 0px) {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 4rem;
+		}
 
-        @include abs.mq(900px, 0px) {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 6rem;
-        }
+		@include abs.mq(900px, 0px) {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 6rem;
+		}
 
-        @include abs.mq(1200px, 0px) {
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8rem;
-        }
+		@include abs.mq(1200px, 0px) {
+			grid-template-columns: repeat(4, 1fr);
+			gap: 8rem;
+		}
 
-        &__item {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
+		&__item {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 0.5rem;
 
-            &__hide {
-                display: none;
-            }
+			&__hide {
+				&--search {
+					display: none;
+				}
 
-            img {
-                border-radius: 1rem;
-                outline: 1px solid var(--color-dark);
-            }
+				&--filter {
+					display: none;
+				}
+			}
 
-            h3 {
-                font-weight: bold;
-            }
+			img {
+				border-radius: 1rem;
+				outline: 1px solid var(--color-dark);
+			}
 
-            button {
-                padding: 1rem;
-                border-radius: 50vmax;
+			h3 {
+				font-weight: bold;
+			}
 
-                background-color: var(--color-dark);
+			button {
+				padding: 1rem;
+				border-radius: 50vmax;
 
-                color: var(--color-primary);
-                font-weight: bold;
+				background-color: var(--color-dark);
 
-                cursor: pointer;
+				color: var(--color-primary);
+				font-weight: bold;
 
-                transition: all 0.25s ease;
+				cursor: pointer;
 
-                &:hover,
-                &:focus-visible {
-                    opacity: 0.8;
-                }
-            }
-        }
-    }
+				transition: all 0.25s ease;
+
+				&:hover,
+				&:focus-visible {
+					opacity: 0.8;
+				}
+			}
+		}
+	}
 }

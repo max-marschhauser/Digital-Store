@@ -43,11 +43,47 @@
 
 		<div class="options" data-filter-selector>
 			<h3>Filter</h3>
+			<form class="options__form">
+				<div class="options__form__column">
+					<h4>Authors:</h4>
+					<div>
+						<input type="checkbox" id="blackSabbath" value="Black Sabbath" />
+						<label for="blackSabbath">Black Sabbath</label>
+					</div>
+					<div>
+						<input type="checkbox" id="The Doors" value="The Doors" />
+						<label for="The Doors">The Doors</label>
+					</div>
+					<div>
+						<input type="checkbox" id="Pink Floyd" value="Pink Floyd" />
+						<label for="Pink Floyd">Pink Floyd</label>
+					</div>
+				</div>
+				<div class="options__form__column">
+					<h4>Year:</h4>
+					<div><input type="checkbox" id="1973" value="1969" /> <label for="1973">1973.</label></div>
+					<div><input type="checkbox" id="1972" value="1972" /> <label for="1972">1972.</label></div>
+					<div><input type="checkbox" id="1971" value="1971" /> <label for="1971">1971.</label></div>
+				</div>
+				<div class="options__form__column">
+					<h4>Price</h4>
+					<div><input type="checkbox" id="5€-10€" value="5€-10€" /> <label for="5€-10€">5€-10€</label></div>
+					<div>
+						<input type="checkbox" id="11€-15€" value="11€-15€" /> <label for="11€-15€">11€-15€</label>
+					</div>
+					<div>
+						<input type="checkbox" id="16€-20€" value="16€-20€" /> <label for="16€-20€">16€-20€</label>
+					</div>
+				</div>
+			</form>
+			<button type="button" data-filter-selected-button>Filter Selected</button>
 		</div>
 
 		<div class="options" data-search-selector>
 			<h3>Search</h3>
-			<input type="search" id="search" data-search-input />
+			<form>
+				<input type="search" id="search" data-search-input />
+			</form>
 		</div>
 
 		<div class="options" data-sort-selector>
