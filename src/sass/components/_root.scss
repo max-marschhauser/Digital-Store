@@ -10,6 +10,10 @@
 	--color-primary: hsl(175, 100%, 50%);
 }
 
+body {
+	background-color: var(--color-light);
+}
+
 *,
 *::before,
 *::after {
@@ -30,6 +34,21 @@
 	cursor: default;
 }
 
-body {
-	background-color: var(--color-light);
+::-webkit-scrollbar {
+	width: 0.75rem;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--color-light);
+	border-inline: 0.05rem solid var(--color-dark);
+	border-block: 0.15rem solid var(--color-dark);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color-dark-transparent);
+	border-radius: 50vmax;
+
+	&:hover {
+		background: var(--color-dark);
+	}
 }
