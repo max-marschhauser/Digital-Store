@@ -1,5 +1,16 @@
-/*import imgName from "./folder/imgName.jpg";
-
-const image1 = document.querySelector("[data-img]");
-image1.src = imageName;
-*/
+import "./main/favicon.png";
+import "./main/store1.jpg";
+import "./main/store2.jpg";
+import "./main/store3.jpg";
+import "./albums/Black_Sabbath/Master_of_Reality.jpg";
+import "./albums/Black_Sabbath/Paranoid.jpg";
+import "./albums/Black_Sabbath/Vol_4.jpg";
+import "./albums/Deep_Purple/In_Rock.jpg";
+import "./albums/Led_Zeppelin/Mothership.jpg";
+import "./albums/Pink_Floyd/Animals.jpg";
+import "./albums/Pink_Floyd/Dark_Side_of_the_Moon.jpg";
+import "./albums/Pink_Floyd/Wish_You_Were_Here.jpg";
+import "./albums/The_Doors/LA_Woman.jpg";
+import "./albums/The_Doors/Morrison_Hotel.jpg";
+import "./albums/The_Doors/The_Doors.jpg";
+import "./albums/The_Doors/Waiting_for_the_Sun.jpg";
