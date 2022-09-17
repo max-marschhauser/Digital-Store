@@ -1,0 +1,42 @@
+{
+	"name": "webpack-sample",
+	"author": "Max Marschhauser, max.marschhauser@gmail.com",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack",
+		"dev": "webpack serve",
+		"watch:html": "onchange \"src/*.html\" -- npm run build",
+		"watch:img": "onchange \"src/assets/**/*\" -- npm run build",
+		"watch:scripts": "onchange \"src/scripts/**/*.js\" -- npm run build",
+		"watch:sass": "onchange \"src/styles/**/*.scss\" -- npm run build",
+		"watch": "npm-run-all --parallel watch:*",
+		"start": "npm run watch dev"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/max-marschhauser/Webpack-sample.git"
+	},
+	"keywords": [],
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/max-marschhauser/Webpack-sample/issues"
+	},
+	"homepage": "https://github.com/max-marschhauser/Webpack-sample#readme",
+	"devDependencies": {
+		"@babel/core": "^7.19.1",
+		"@babel/preset-env": "^7.19.1",
+		"babel-loader": "^8.2.5",
+		"css-loader": "^6.7.1",
+		"html-webpack-plugin": "^5.5.0",
+		"npm-run-all": "^4.1.5",
+		"onchange": "^7.1.0",
+		"sass": "^1.54.9",
+		"sass-loader": "^13.0.2",
+		"style-loader": "^3.3.1",
+		"webpack": "^5.74.0",
+		"webpack-cli": "^4.10.0",
+		"webpack-dev-server": "^4.11.0"
+	}
+}
