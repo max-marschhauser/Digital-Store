@@ -5,3 +5,5 @@
 - sa lijeve strane postaviti tipke da se scrolla dolje do carta i gore do početka izbora albuma
 - dodati intersection observer za učitevanje albuma na stranici
 - skratiti css i js gdje god je moguće
+
+ADD IMAGES THE NEW WAY

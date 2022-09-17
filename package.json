@@ -1,33 +1,42 @@
 {
-    "name": "digital_store",
-    "version": "0.1.0",
-    "description": "SASS compile|autoprefix|minimize and live-reload dev server using Browsersync for static HTML",
-    "main": "public/index.html",
-    "author": "Max Marschhauser, max.marschhauser@gmail.com",
-    "scripts": {
-        "build:sass": "sass  --no-source-map src/sass:public/css",
-        "copy:html": "copyfiles -u 1 ./src/*.html public",
-        "copy:img": "copyfiles -u 1 ./src/img/**/* public",
-        "copy:scripts": "copyfiles -u 1 ./src/scripts/**/*.js public",
-        "copy": "npm-run-all --parallel copy:*",
-        "watch:html": "onchange \"src/*.html\" -- npm run copy:html",
-        "watch:img": "onchange \"src/img/**/*\" -- npm run copy:img",
-        "watch:scripts": "onchange \"src/scripts/**/*.js\" -- npm run copy:scripts",
-        "watch:sass": "sass  --no-source-map --watch src/sass:public/css",
-        "watch": "npm-run-all --parallel watch:*",
-        "serve": "browser-sync start --server public --files public",
-        "start": "npm-run-all copy --parallel watch serve",
-        "build": "npm-run-all copy:html build:*",
-        "postbuild": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map"
-    },
-    "dependencies": {
-        "autoprefixer": "^10.4.2",
-        "browser-sync": "^2.27.7",
-        "copyfiles": "^2.4.1",
-        "cssnano": "^5.0.17",
-        "npm-run-all": "^4.1.5",
-        "onchange": "^7.1.0",
-        "postcss-cli": "^9.1.0",
-        "sass": "^1.49.8"
-    }
+	"name": "webpack-sample",
+	"author": "Max Marschhauser, max.marschhauser@gmail.com",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack",
+		"dev": "webpack serve",
+		"watch:html": "onchange \"src/*.html\" -- npm run build",
+		"watch:img": "onchange \"src/assets/**/*\" -- npm run build",
+		"watch:scripts": "onchange \"src/scripts/**/*.js\" -- npm run build",
+		"watch:sass": "onchange \"src/styles/**/*.scss\" -- npm run build",
+		"watch": "npm-run-all --parallel watch:*",
+		"start": "npm run watch dev"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/max-marschhauser/Webpack-sample.git"
+	},
+	"keywords": [],
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/max-marschhauser/Webpack-sample/issues"
+	},
+	"homepage": "https://github.com/max-marschhauser/Webpack-sample#readme",
+	"devDependencies": {
+		"@babel/core": "^7.19.1",
+		"@babel/preset-env": "^7.19.1",
+		"babel-loader": "^8.2.5",
+		"css-loader": "^6.7.1",
+		"html-webpack-plugin": "^5.5.0",
+		"npm-run-all": "^4.1.5",
+		"onchange": "^7.1.0",
+		"sass": "^1.54.9",
+		"sass-loader": "^13.0.2",
+		"style-loader": "^3.3.1",
+		"webpack": "^5.74.0",
+		"webpack-cli": "^4.10.0",
+		"webpack-dev-server": "^4.11.0"
+	}
 }
