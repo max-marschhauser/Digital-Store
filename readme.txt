@@ -1,5 +1,6 @@
-- napraviti filter
 - napraviti sort
 - using local/session storage create new page after purchase button is pressed which contains information about buyer. Then after submit button is pressed return to the main page
 - create two other sites (navbar manu)
 - skratiti css i js gdje god je moguće
+
+- iz nekog razloga kod albuma se ne prikazuje css stil

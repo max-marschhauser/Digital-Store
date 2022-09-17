@@ -1,221 +1,153 @@
 // form action button
 
-let filterOptionAuthor = document.querySelectorAll("[data-filter-option-author]");
-let filterOptionYear = document.querySelectorAll("[data-filter-option-year]");
-let filterOptionPrice = document.querySelectorAll("[data-filter-option-price]");
+const allFilterOptions = document.querySelectorAll("[data-filter-option]");
+const filterOptionAuthor = document.querySelectorAll("[data-filter-option-author]");
+const filterOptionYear = document.querySelectorAll("[data-filter-option-year]");
+const filterOptionPrice = document.querySelectorAll("[data-filter-option-price]");
+
+const albumsItem = document.querySelectorAll("[data-albums-item]");
+const albumAuthor = document.querySelectorAll("[data-author]");
+const albumYear = document.querySelectorAll("[data-year]");
+const albumPrice = document.querySelectorAll("[data-price]");
 
 // FILTER SELECT BUTTON
-let filterCheckedButton = document.querySelector("[data-filter-checked-button]");
+const filterCheckedButton = document.querySelector("[data-filter-checked-button]");
 filterCheckedButton.addEventListener("click", checkIfAnyAreClicked);
 
+// CHECK IF ANY FILTER OPTION IS CHECKED, IF NONE IS CHECKED THEN RESET FILTER OPTION
+
 function checkIfAnyAreClicked() {
-	checkIfAnyAreClickedAuthor();
-	// checkIfAnyAreClickedYear();
-	//	checkIfAnyAreClickedPrice();
+	let counter = 0;
+
+	allFilterOptions.forEach((option) => {
+		if (option.checked === false) {
+			counter++;
+		}
+	});
+
+	if (allFilterOptions.length === counter) {
+		albumsItem.forEach((album) => {
+			album.classList.remove("albums__item__hide--filter");
+		});
+	} else {
+		filterAlbums();
+	}
 }
 
-// FILTER AUTHOR
+function filterAlbums() {
+	albumsItem.forEach((album) => {
+		album.classList.add("albums__item__hide--filter");
 
-function checkIfAnyAreClickedAuthor() {
-	let counter = 0;
+		if (filterAuthor(album) === true && filterYear(album) === true && filterPrice(album) === true) {
+			album.classList.remove("albums__item__hide--filter");
+		}
+	});
+}
+
+function filterAuthor(album) {
+	const author = album.querySelector("[data-author]");
+	let matched = false;
+	let checked = false;
 
 	filterOptionAuthor.forEach((option) => {
-		if (option.checked === false) {
-			counter++;
+		if (option.checked === true) {
+			checked = true;
+			if (option.value === author.innerHTML) {
+				matched = true;
+			}
 		}
 	});
-	if (filterOptionAuthor.length === counter) {
-		filterOptionAuthor.forEach((option) => {
-			removeHideClassAuthor(option.value);
-		});
+
+	if (matched === true || checked === false) {
+		return true;
 	} else {
-		// ovdje skratiti author funkciju tako da primi dva parametra - option.value i option.checked --> ili samo option pa onda u funkciji uzmem kad mi šta treba
+		return false;
 	}
-	/*
-	{
-		filterOptionAuthor.forEach((option) => {
-			if (option.checked === true) {
-				removeHideClassAuthor(option.value);
-			} else {
-				addHideClassAuthor(option.value);
-			}
-		});
-	}*/
 }
 
-// FILTER YEAR
-
-function checkIfAnyAreClickedYear() {
-	let counter = 0;
+function filterYear(album) {
+	const year = album.querySelector("[data-year]");
+	let matched = false;
+	let checked = false;
 
 	filterOptionYear.forEach((option) => {
-		if (option.checked === false) {
-			counter++;
+		let startYear = "";
+		let endYear = "";
+		let selectedAlbumYear = 0;
+
+		if (option.checked === true) {
+			checked = true;
+
+			for (let i = 0; i < option.value.length; i++) {
+				if (i < 4) {
+					startYear += option.value[i];
+				} else if (i > 5 && i < 10) {
+					endYear += option.value[i];
+				}
+			}
+
+			startYear = parseInt(startYear);
+			endYear = parseInt(endYear);
+			selectedAlbumYear = parseInt(year.innerHTML);
+
+			if (selectedAlbumYear >= startYear && selectedAlbumYear <= endYear) {
+				matched = true;
+			}
 		}
 	});
-	if (filterOptionYear.length === counter) {
-		filterOptionYear.forEach((option) => {
-			removeHideClassYear(option.value);
-		});
+
+	if (matched === true || checked === false) {
+		return true;
 	} else {
-		filterOptionYear.forEach((option) => {
-			if (option.checked === true) {
-				removeHideClassYear(option.value);
-			} else {
-				addHideClassYear(option.value);
-			}
-		});
+		return false;
 	}
 }
 
-// FILTER PRICE
-
-function checkIfAnyAreClickedPrice() {
-	let counter = 0;
+function filterPrice(album) {
+	const price = album.querySelector("[data-price]");
+	let matched = false;
+	let checked = false;
 
 	filterOptionPrice.forEach((option) => {
-		if (option.checked === false) {
-			counter++;
-		}
-	});
-	if (filterOptionPrice.length === counter) {
-		filterOptionPrice.forEach((option) => {
-			removeHideClassPrice(option.value);
-		});
-	} else {
-		filterOptionPrice.forEach((option) => {
-			if (option.checked === true) {
-				removeHideClassPrice(option.value);
-			} else {
-				addHideClassPrice(option.value);
+		if (option.checked === true) {
+			checked = true;
+
+			let startPrice = "";
+			let finishPrice = "";
+			let euroSignCounter = 0;
+			let albumPriceTag = "";
+
+			for (let i = 0; i < option.value.length; i++) {
+				if (option.value[i] === "€") {
+					euroSignCounter++;
+					i += 2;
+				}
+				if (option.value[i] !== "€" && euroSignCounter === 0) {
+					startPrice += option.value[i];
+				}
+				if (option.value[i] !== "€" && euroSignCounter === 1) {
+					finishPrice += option.value[i];
+				}
 			}
-		});
+
+			startPrice = parseFloat(startPrice);
+			finishPrice = parseFloat(finishPrice);
+
+			for (let j = 0; j < price.innerHTML.length - 1; j++) {
+				albumPriceTag += price.innerHTML[j];
+			}
+
+			albumPriceTag = parseFloat(albumPriceTag);
+
+			if (albumPriceTag >= startPrice && albumPriceTag <= finishPrice) {
+				matched = true;
+			}
+		}
+	});
+
+	if (matched === true || checked === false) {
+		return true;
+	} else {
+		return false;
 	}
-}
-
-function removeHideClassAuthor(option) {
-	let albumAuthor = document.querySelectorAll("[data-author]");
-	albumAuthor.forEach((album) => {
-		if (album.innerHTML === option) {
-			album.parentElement.classList.remove("albums__item__hide--filter");
-		}
-	});
-}
-
-function addHideClassAuthor(option) {
-	let albumAuthor = document.querySelectorAll("[data-author]");
-	albumAuthor.forEach((album) => {
-		if (album.innerHTML === option) {
-			album.parentElement.classList.add("albums__item__hide--filter");
-		}
-	});
-}
-
-function removeHideClassYear(option) {
-	let startYear = "";
-	let finishYear = "";
-
-	for (let i = 0; i < option.length; i++) {
-		if (i < 4) {
-			startYear += option[i];
-		}
-		if (i > 5 && i < 10) {
-			finishYear += option[i];
-		}
-	}
-
-	startYear = parseInt(startYear);
-	finishYear = parseInt(finishYear);
-
-	let albumYear = document.querySelectorAll("[data-year]");
-	albumYear.forEach((album) => {
-		let yearOfAlbum = parseInt(album.innerHTML);
-		if (yearOfAlbum >= startYear && yearOfAlbum <= finishYear) {
-			album.parentElement.classList.remove("albums__item__hide--filter");
-		}
-	});
-}
-
-function addHideClassYear(option) {
-	let startYear = "";
-	let finishYear = "";
-
-	for (let i = 0; i < option.length; i++) {
-		if (i < 4) {
-			startYear += option[i];
-		}
-		if (i > 5 && i < 10) {
-			finishYear += option[i];
-		}
-	}
-
-	startYear = parseInt(startYear);
-	finishYear = parseInt(finishYear);
-
-	let albumYear = document.querySelectorAll("[data-year]");
-	albumYear.forEach((album) => {
-		let yearOfAlbum = parseInt(album.innerHTML);
-		if (yearOfAlbum >= startYear && yearOfAlbum <= finishYear) {
-			album.parentElement.classList.add("albums__item__hide--filter");
-		}
-	});
-}
-
-function removeHideClassPrice(option) {
-	let startPrice = "";
-	let finishPrice = "";
-	let euroCounter = 0;
-
-	for (let i = 0; i < option.length; i++) {
-		if (option[i] === "€") {
-			euroCounter++;
-			i += 2;
-		}
-		if (option[i] !== "€" && euroCounter === 0) {
-			startPrice += option[i];
-		}
-		if (option[i] !== "€" && euroCounter === 1) {
-			finishPrice += option[i];
-		}
-	}
-
-	startPrice = parseFloat(startPrice);
-	finishPrice = parseFloat(finishPrice);
-
-	let albumPrice = document.querySelectorAll("[data-price]");
-	albumPrice.forEach((album) => {
-		let albumPriceTag = parseFloat(album.innerHTML);
-		if (albumPriceTag >= startPrice && albumPriceTag <= finishPrice) {
-			album.parentElement.classList.remove("albums__item__hide--filter");
-		}
-	});
-}
-
-function addHideClassPrice(option) {
-	let startPrice = "";
-	let finishPrice = "";
-	let euroCounter = 0;
-
-	for (let i = 0; i < option.length; i++) {
-		if (option[i] === "€") {
-			euroCounter++;
-			i += 2;
-		}
-		if (option[i] !== "€" && euroCounter === 0) {
-			startPrice += option[i];
-		}
-		if (option[i] !== "€" && euroCounter === 1) {
-			finishPrice += option[i];
-		}
-	}
-	startPrice = parseFloat(startPrice);
-	finishPrice = parseFloat(finishPrice);
-
-	let albumPrice = document.querySelectorAll("[data-price]");
-	albumPrice.forEach((album) => {
-		let albumPriceTag = parseFloat(album.innerHTML);
-		if (albumPriceTag >= startPrice && albumPriceTag <= finishPrice) {
-			album.parentElement.classList.add("albums__item__hide--filter");
-		}
-	});
 }
