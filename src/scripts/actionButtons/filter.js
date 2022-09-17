@@ -1,12 +1,12 @@
 // form action button
 
-let selectedFilterOptionAuthor = document.querySelectorAll("[data-selected-filter-option-author]");
-let selectedFilterOptionYear = document.querySelectorAll("[data-selected-filter-option-year]");
-let selectedFilterOptionPrice = document.querySelectorAll("[data-selected-filter-option-price]");
+let filterOptionAuthor = document.querySelectorAll("[data-filter-option-author]");
+let filterOptionYear = document.querySelectorAll("[data-filter-option-year]");
+let filterOptionPrice = document.querySelectorAll("[data-filter-option-price]");
 
 // FILTER SELECT BUTTON
-let filterSelectedButton = document.querySelector("[data-filter-selected-button]");
-filterSelectedButton.addEventListener("click", checkIfAnyAreClicked);
+let filterCheckedButton = document.querySelector("[data-filter-checked-button]");
+filterCheckedButton.addEventListener("click", checkIfAnyAreClicked);
 
 function checkIfAnyAreClicked() {
 	checkIfAnyAreClickedAuthor();
@@ -19,13 +19,13 @@ function checkIfAnyAreClicked() {
 function checkIfAnyAreClickedAuthor() {
 	let counter = 0;
 
-	selectedFilterOptionAuthor.forEach((option) => {
+	filterOptionAuthor.forEach((option) => {
 		if (option.checked === false) {
 			counter++;
 		}
 	});
-	if (selectedFilterOptionAuthor.length === counter) {
-		selectedFilterOptionAuthor.forEach((option) => {
+	if (filterOptionAuthor.length === counter) {
+		filterOptionAuthor.forEach((option) => {
 			removeHideClassAuthor(option.value);
 		});
 	} else {
@@ -33,7 +33,7 @@ function checkIfAnyAreClickedAuthor() {
 	}
 	/*
 	{
-		selectedFilterOptionAuthor.forEach((option) => {
+		filterOptionAuthor.forEach((option) => {
 			if (option.checked === true) {
 				removeHideClassAuthor(option.value);
 			} else {
@@ -48,17 +48,17 @@ function checkIfAnyAreClickedAuthor() {
 function checkIfAnyAreClickedYear() {
 	let counter = 0;
 
-	selectedFilterOptionYear.forEach((option) => {
+	filterOptionYear.forEach((option) => {
 		if (option.checked === false) {
 			counter++;
 		}
 	});
-	if (selectedFilterOptionYear.length === counter) {
-		selectedFilterOptionYear.forEach((option) => {
+	if (filterOptionYear.length === counter) {
+		filterOptionYear.forEach((option) => {
 			removeHideClassYear(option.value);
 		});
 	} else {
-		selectedFilterOptionYear.forEach((option) => {
+		filterOptionYear.forEach((option) => {
 			if (option.checked === true) {
 				removeHideClassYear(option.value);
 			} else {
@@ -73,17 +73,17 @@ function checkIfAnyAreClickedYear() {
 function checkIfAnyAreClickedPrice() {
 	let counter = 0;
 
-	selectedFilterOptionPrice.forEach((option) => {
+	filterOptionPrice.forEach((option) => {
 		if (option.checked === false) {
 			counter++;
 		}
 	});
-	if (selectedFilterOptionPrice.length === counter) {
-		selectedFilterOptionPrice.forEach((option) => {
+	if (filterOptionPrice.length === counter) {
+		filterOptionPrice.forEach((option) => {
 			removeHideClassPrice(option.value);
 		});
 	} else {
-		selectedFilterOptionPrice.forEach((option) => {
+		filterOptionPrice.forEach((option) => {
 			if (option.checked === true) {
 				removeHideClassPrice(option.value);
 			} else {
