@@ -1,5 +1,7 @@
 // search action button
 
+import { albumList } from "../displayAlbums/albumList.js";
+
 let searchInput = document.querySelector("[data-search-input]");
 let albums = document.querySelectorAll("[data-albums-item]");
 
@@ -17,4 +19,22 @@ searchInput.addEventListener("input", (event) => {
 			year.toLowerCase().includes(value);
 		album.classList.toggle("albums__item__hide--search", !isVisible);
 	});
+
+	let albumsToDisplay = [];
+
+	albums.forEach((album) => {
+		if (album.classList.contains("albums__item__hide--search") === false) {
+			albumsToDisplay.push(album.querySelector("[data-title]").innerHTML);
+		}
+	});
+
+	albumList.forEach((item) => {
+		if (albumsToDisplay.includes(item.title)) {
+			item.search = false;
+		} else {
+			item.search = true;
+		}
+	});
+
+	console.log(albumList);
 });

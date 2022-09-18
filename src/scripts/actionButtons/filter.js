@@ -41,13 +41,28 @@ function checkIfAnyAreClicked() {
 function filterAlbums() {
 	albumsItem.forEach((album) => {
 		album.classList.add("albums__item__hide--filter");
+		albumList.forEach((item) => {
+			item.filter = true;
+		});
 
 		if (filterAuthor(album) === true && filterYear(album) === true && filterPrice(album) === true) {
 			album.classList.remove("albums__item__hide--filter");
 		}
 	});
 
-	// AKO ALBUM ITEM CLASS LIST CONTAINS "album__item__hide--filter" onda treba staviti albumList.filter = true, inače albumList.filter = false;
+	let albumsToDisplay = [];
+
+	albumsItem.forEach((album) => {
+		if (album.classList.contains("albums__item__hide--filter") === false) {
+			albumsToDisplay.push(album.querySelector("[data-title]").innerHTML);
+		}
+	});
+
+	albumList.forEach((item) => {
+		if (albumsToDisplay.includes(item.title)) {
+			item.filter = false;
+		}
+	});
 }
 
 function filterAuthor(album) {
