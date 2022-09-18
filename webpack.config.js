@@ -26,8 +26,8 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.scss$/,
-				use: ["style-loader", "css-loader", "sass-loader"],
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				type: "asset/resource",
 			},
 			{
 				test: /\.js$/,
@@ -40,8 +40,8 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.(png|svg|jpg|jpeg|gif)$/i,
-				type: "asset/resource",
+				test: /\.scss$/,
+				use: ["style-loader", "css-loader", "sass-loader"],
 			},
 		],
 	},

@@ -52,33 +52,33 @@ main {
 				&--filter {
 					display: none;
 				}
+			}
 
-				img {
-					border-radius: 1rem;
-					outline: 1px solid var(--color-dark);
-				}
+			img {
+				border-radius: 1rem;
+				outline: 1px solid var(--color-dark);
+			}
 
-				h3 {
-					font-weight: bold;
-				}
+			h3 {
+				font-weight: bold;
+			}
 
-				button {
-					padding: 1rem;
-					border-radius: 50vmax;
+			button {
+				padding: 1rem;
+				border-radius: 50vmax;
 
-					background-color: var(--color-dark);
+				background-color: var(--color-dark);
 
-					color: var(--color-primary);
-					font-weight: bold;
+				color: var(--color-primary);
+				font-weight: bold;
 
-					cursor: pointer;
+				cursor: pointer;
 
-					transition: all 0.25s ease;
+				transition: all 0.25s ease;
 
-					&:hover,
-					&:focus-visible {
-						opacity: 0.8;
-					}
+				&:hover,
+				&:focus-visible {
+					opacity: 0.8;
 				}
 			}
 		}

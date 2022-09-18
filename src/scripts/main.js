@@ -4,6 +4,7 @@ import {} from "./actionButtons/actionButtons.js"; // action buttons for site (f
 import {} from "./actionButtons/filterDisplay.js"; // display options for filter action button
 import {} from "./actionButtons/filter.js"; // filter action button
 import {} from "./actionButtons/search.js"; // search action button
+import {} from "./actionButtons/sort.js"; // sort action button
 
 //COPYRIGHT DATE
 
