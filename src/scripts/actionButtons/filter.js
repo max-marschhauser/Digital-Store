@@ -1,4 +1,5 @@
 // form action button
+import { albumList } from "../displayAlbums/albumList.js";
 
 const allFilterOptions = document.querySelectorAll("[data-filter-option]");
 const filterOptionAuthor = document.querySelectorAll("[data-filter-option-author]");
@@ -11,6 +12,7 @@ const albumYear = document.querySelectorAll("[data-year]");
 const albumPrice = document.querySelectorAll("[data-price]");
 
 // FILTER SELECT BUTTON
+
 const filterCheckedButton = document.querySelector("[data-filter-checked-button]");
 filterCheckedButton.addEventListener("click", checkIfAnyAreClicked);
 
@@ -29,6 +31,8 @@ function checkIfAnyAreClicked() {
 		albumsItem.forEach((album) => {
 			album.classList.remove("albums__item__hide--filter");
 		});
+
+		albumList.forEach((item) => (item.filter = false));
 	} else {
 		filterAlbums();
 	}
@@ -42,6 +46,8 @@ function filterAlbums() {
 			album.classList.remove("albums__item__hide--filter");
 		}
 	});
+
+	// AKO ALBUM ITEM CLASS LIST CONTAINS "album__item__hide--filter" onda treba staviti albumList.filter = true, inače albumList.filter = false;
 }
 
 function filterAuthor(album) {

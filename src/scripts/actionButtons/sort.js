@@ -3,6 +3,9 @@ const sortOption = document.querySelector("[data-sort-option]");
 const sortButton = document.querySelector("[data-sort-selected-button]");
 sortButton.addEventListener("click", whichSortWasSelected);
 
+import { albumList } from "../displayAlbums/albumList.js";
+import { displayAlbums } from "../displayAlbums/displayAlbums.js";
+
 function whichSortWasSelected() {
 	let value = sortOption.options[sortOption.selectedIndex].value;
 
@@ -32,36 +35,93 @@ function whichSortWasSelected() {
 			priceReverse();
 			break;
 	}
+	displayAlbums(albumList);
 }
 
 function authorAZ() {
-	console.log("Author A-Z");
+	albumList.sort((a, b) => {
+		let authora = a.author.toLowerCase();
+		let authorb = b.author.toLowerCase();
+
+		if (authora < authorb) {
+			return -1;
+		}
+		if (authorb < authora) {
+			return 1;
+		}
+		return 0;
+	});
 }
 
 function authorZA() {
-	console.log("Author Z-A");
+	albumList.sort((a, b) => {
+		let authora = a.author.toLowerCase();
+		let authorb = b.author.toLowerCase();
+
+		if (authora > authorb) {
+			return -1;
+		}
+		if (authorb > authora) {
+			return 1;
+		}
+		return 0;
+	});
 }
 
 function titleAZ() {
-	console.log("Title A-Z");
+	albumList.sort((a, b) => {
+		let titlea = a.title.toLowerCase();
+		let titleb = b.title.toLowerCase();
+
+		if (titlea < titleb) {
+			return -1;
+		}
+		if (titleb < titlea) {
+			return 1;
+		}
+		return 0;
+	});
 }
 
 function titleZA() {
-	console.log("Title Z-A");
+	albumList.sort((a, b) => {
+		let titlea = a.title.toLowerCase();
+		let titleb = b.title.toLowerCase();
+
+		if (titlea > titleb) {
+			return -1;
+		}
+		if (titleb > titlea) {
+			return 1;
+		}
+		return 0;
+	});
 }
 
 function year() {
-	console.log("Year");
+	albumList.sort((a, b) => {
+		return a.year - b.year;
+	});
+	console.log(albumList);
 }
 
 function yearReverse() {
-	console.log("Year Reverse");
+	albumList.sort((a, b) => {
+		return b.year - a.year;
+	});
+	console.log(albumList);
 }
 
 function price() {
-	console.log("Price");
+	albumList.sort((a, b) => {
+		return a.price - b.price;
+	});
+	console.log(albumList);
 }
 
 function priceReverse() {
-	console.log("Price Reverse");
+	albumList.sort((a, b) => {
+		return b.price - a.price;
+	});
+	console.log(albumList);
 }

@@ -7,6 +7,8 @@ export let albumList = [
 		year: 1971,
 		price: 10.99,
 		imgSrc: "Master_of_Reality.jpg",
+		filter: false,
+		search: false,
 	},
 	{
 		title: "Paranoid",
@@ -14,6 +16,8 @@ export let albumList = [
 		year: 1970,
 		price: 25.99,
 		imgSrc: "Paranoid.jpg",
+		filter: false,
+		search: false,
 	},
 	{
 		title: "Vol. 4",
@@ -21,6 +25,8 @@ export let albumList = [
 		year: 1972,
 		price: 15.59,
 		imgSrc: "Vol_4.jpg",
+		filter: false,
+		search: false,
 	},
 	{
 		title: "In Rock",
@@ -28,6 +34,8 @@ export let albumList = [
 		year: 1970,
 		price: 17.29,
 		imgSrc: "In_Rock.jpg",
+		filter: false,
+		search: false,
 	},
 	{
 		title: "Mothership",
@@ -35,6 +43,8 @@ export let albumList = [
 		year: 2007,
 		price: 13.99,
 		imgSrc: "Mothership.jpg",
+		filter: false,
+		search: false,
 	},
 	{
 		title: "Animals",
@@ -42,6 +52,8 @@ export let albumList = [
 		year: 1977,
 		price: 9.99,
 		imgSrc: "Animals.jpg",
+		filter: false,
+		search: false,
 	},
 	{
 		title: "Dark Side of the Moon",
@@ -49,6 +61,8 @@ export let albumList = [
 		year: 1973,
 		price: 19.99,
 		imgSrc: "Dark_Side_of_the_Moon.jpg",
+		filter: false,
+		search: false,
 	},
 	{
 		title: "Wish You Were Here",
@@ -56,6 +70,8 @@ export let albumList = [
 		year: 1975,
 		price: 11.99,
 		imgSrc: "Wish_You_Were_Here.jpg",
+		filter: false,
+		search: false,
 	},
 	{
 		title: "L.A.Woman",
@@ -63,6 +79,8 @@ export let albumList = [
 		year: 1971,
 		price: 11.99,
 		imgSrc: "LA_Woman.jpg",
+		filter: false,
+		search: false,
 	},
 	{
 		title: "Morrison Hotel",
@@ -70,6 +88,8 @@ export let albumList = [
 		year: 1970,
 		price: 10.99,
 		imgSrc: "Morrison_Hotel.jpg",
+		filter: false,
+		search: false,
 	},
 	{
 		title: "The Doors",
@@ -77,6 +97,8 @@ export let albumList = [
 		year: 1967,
 		price: 18.99,
 		imgSrc: "The_Doors.jpg",
+		filter: false,
+		search: false,
 	},
 	{
 		title: "Waiting for the Sun",
@@ -84,5 +106,7 @@ export let albumList = [
 		year: 1968,
 		price: 9.99,
 		imgSrc: "Waiting_for_the_Sun.jpg",
+		filter: false,
+		search: false,
 	},
 ];
