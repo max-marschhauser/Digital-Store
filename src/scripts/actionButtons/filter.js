@@ -1,16 +1,6 @@
 // form action button
 import { albumList } from "../displayAlbums/albumList.js";
 
-const allFilterOptions = document.querySelectorAll("[data-filter-option]");
-const filterOptionAuthor = document.querySelectorAll("[data-filter-option-author]");
-const filterOptionYear = document.querySelectorAll("[data-filter-option-year]");
-const filterOptionPrice = document.querySelectorAll("[data-filter-option-price]");
-
-const albumsItem = document.querySelectorAll("[data-albums-item]");
-const albumAuthor = document.querySelectorAll("[data-author]");
-const albumYear = document.querySelectorAll("[data-year]");
-const albumPrice = document.querySelectorAll("[data-price]");
-
 // FILTER SELECT BUTTON
 
 const filterCheckedButton = document.querySelector("[data-filter-checked-button]");
@@ -19,6 +9,8 @@ filterCheckedButton.addEventListener("click", checkIfAnyAreClicked);
 // CHECK IF ANY FILTER OPTION IS CHECKED, IF NONE IS CHECKED THEN RESET FILTER OPTION
 
 function checkIfAnyAreClicked() {
+	const albumsItem = document.querySelectorAll("[data-albums-item]");
+	const allFilterOptions = document.querySelectorAll("[data-filter-option]");
 	let counter = 0;
 
 	allFilterOptions.forEach((option) => {
@@ -39,6 +31,7 @@ function checkIfAnyAreClicked() {
 }
 
 function filterAlbums() {
+	const albumsItem = document.querySelectorAll("[data-albums-item]");
 	albumsItem.forEach((album) => {
 		album.classList.add("albums__item__hide--filter");
 		albumList.forEach((item) => {
@@ -66,6 +59,7 @@ function filterAlbums() {
 }
 
 function filterAuthor(album) {
+	const filterOptionAuthor = document.querySelectorAll("[data-filter-option-author]");
 	const author = album.querySelector("[data-author]");
 	let matched = false;
 	let checked = false;
@@ -87,6 +81,7 @@ function filterAuthor(album) {
 }
 
 function filterYear(album) {
+	const filterOptionYear = document.querySelectorAll("[data-filter-option-year]");
 	const year = album.querySelector("[data-year]");
 	let matched = false;
 	let checked = false;
@@ -125,6 +120,7 @@ function filterYear(album) {
 }
 
 function filterPrice(album) {
+	const filterOptionPrice = document.querySelectorAll("[data-filter-option-price]");
 	const price = album.querySelector("[data-price]");
 	let matched = false;
 	let checked = false;
@@ -160,7 +156,7 @@ function filterPrice(album) {
 
 			albumPriceTag = parseFloat(albumPriceTag);
 
-			if (albumPriceTag >= startPrice && albumPriceTag <= finishPrice) {
+			if (albumPriceTag > startPrice && albumPriceTag <= finishPrice) {
 				matched = true;
 			}
 		}

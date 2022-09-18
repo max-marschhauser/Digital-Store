@@ -2,10 +2,10 @@
 
 import { albumList } from "../displayAlbums/albumList.js";
 
-let searchInput = document.querySelector("[data-search-input]");
-let albums = document.querySelectorAll("[data-albums-item]");
+const searchInput = document.querySelector("[data-search-input]");
 
 searchInput.addEventListener("input", (event) => {
+	const albums = document.querySelectorAll("[data-albums-item]");
 	const value = event.target.value.toLowerCase();
 
 	albums.forEach((album) => {
@@ -35,6 +35,4 @@ searchInput.addEventListener("input", (event) => {
 			item.search = true;
 		}
 	});
-
-	console.log(albumList);
 });
