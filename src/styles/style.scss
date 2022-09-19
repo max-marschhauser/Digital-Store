@@ -5,3 +5,7 @@
 @use "components/main";
 @use "components/footer";
 @use "components/cart";
+
+.hide-page {
+	display: none;
+}
