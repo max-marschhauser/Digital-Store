@@ -1,39 +1,80 @@
 @use "../abstracts" as abs;
 
 .hero {
+	display: grid;
+	place-items: center;
+	grid-template-columns: repeat(1, 1fr);
+
+	width: 100vw;
+
+	@include abs.mq(1000px, 0px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	margin: 0 auto;
+
 	background-color: var(--color-light);
 
-	&__image {
-		margin: 0 auto;
+	img:nth-child(1) {
+		display: none;
 
-		max-height: 20rem;
-
-		box-shadow: 50vw 0rem 0 0 var(--color-light), -50vw 0rem 0 0 var(--color-light);
-
-		// background-image: url("../../assets/main/store2.jpg");
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: cover;
-
-		aspect-ratio: 16 / 9;
-
-		@include abs.mq(600px, 0px) {
-			aspect-ratio: 3 / 1;
+		@include abs.mq(1000px, 0px) {
+			display: inline;
+			grid-row: 1/2;
+			grid-column: 1/2;
 		}
+	}
 
-		display: grid;
-		place-items: center;
+	img:nth-child(2),
+	h1 {
+		grid-row: 1/2;
+		grid-column: 1/2;
 
-		&__text {
-			padding: 1rem;
+		@include abs.mq(1000px, 0px) {
+			grid-row: 1/2;
+			grid-column: 2/3;
+		}
+	}
 
-			background-color: var(--color-dark-transparent);
+	img:nth-child(2) {
+		width: 100vw;
+		overflow: hidden;
 
-			color: var(--color-primary);
+		@include abs.mq(1000px, 0px) {
+			width: auto;
+			overflow: auto;
+		}
+	}
 
-			@include abs.mq(700px, 0px) {
-				font-size: 2rem;
-			}
+	img:nth-child(3) {
+		display: none;
+
+		@include abs.mq(1000px, 0px) {
+			display: inline;
+			grid-row: 1/2;
+			grid-column: 3/4;
+		}
+	}
+
+	img {
+		max-height: 15rem;
+
+		box-shadow: 0px 0px 0px 0.2rem var(--color-dark);
+
+		@include abs.mq(1000px, 0px) {
+			max-height: 25rem;
+		}
+	}
+
+	h1 {
+		padding: 1rem;
+
+		background-color: var(--color-dark-transparent);
+
+		color: var(--color-primary);
+
+		@include abs.mq(700px, 0px) {
+			font-size: 2rem;
 		}
 	}
 }

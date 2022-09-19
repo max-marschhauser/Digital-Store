@@ -2,6 +2,9 @@
 
 // ADD ITEM TO CART
 
+let numberOfAlbumsInCart = 0;
+cartNotification();
+
 function addButton() {
 	const buttons = document.querySelectorAll("[data-add-to-cart]");
 	buttons.forEach((button) => {
@@ -26,7 +29,7 @@ function clickedAddToCart(event) {
 }
 
 function addItemToCart(title, author, year, price, imageSrc) {
-	let cartItemNames = document.querySelectorAll("[data-selected-title]");
+	const cartItemNames = document.querySelectorAll("[data-selected-title]");
 
 	for (let i = 0; i < cartItemNames.length; i++) {
 		if (cartItemNames[i].innerText === title) {
@@ -34,6 +37,9 @@ function addItemToCart(title, author, year, price, imageSrc) {
 			return;
 		}
 	}
+	numberOfAlbumsInCart++;
+	cartNotification();
+	alert("Added item to cart!");
 
 	let cartRow = document.createElement("div");
 	cartRow.classList.add("cart__row");
@@ -69,8 +75,12 @@ function addItemToCart(title, author, year, price, imageSrc) {
 function removeRow(event) {
 	let buttonClicked = event.target;
 	buttonClicked.parentElement.remove();
+	alert("Item removed from cart!");
+
+	numberOfAlbumsInCart--;
 
 	updatePrice();
+	cartNotification();
 }
 
 // QUANTITY CHANGE
@@ -134,5 +144,18 @@ function purchaseClicked() {
 		item.parentElement.remove();
 	}
 
+	numberOfAlbumsInCart = 0;
 	updatePrice();
+	cartNotification();
+}
+
+function cartNotification() {
+	const cartNotification = document.querySelector("[data-cart-notification]");
+	cartNotification.innerText = numberOfAlbumsInCart;
+
+	if (numberOfAlbumsInCart === 0) {
+		cartNotification.classList.add("notification--hiden");
+	} else {
+		cartNotification.classList.remove("notification--hiden");
+	}
 }

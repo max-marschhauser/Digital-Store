@@ -1,43 +1,72 @@
 @use "../abstracts" as abs;
 
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
+	position: sticky;
+	top: 0;
+	z-index: 9999;
 
-    padding-block: 0.25rem;
-    border-bottom: 1px solid var(--color-primary);
+	padding-block: 0.25rem;
+	border-bottom: 1px solid var(--color-primary);
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
 
-    background-color: var(--color-dark);
+	background-color: var(--color-dark);
 
-    &__item {
-        padding: 0.5rem 1rem;
+	&__item {
+		position: relative;
+		padding: 0.5rem 1rem;
 
-        text-decoration: none;
-        color: var(--color-primary);
+		text-decoration: none;
+		color: var(--color-primary);
 
-        cursor: pointer;
+		cursor: pointer;
 
-        transition: all 0.5s ease;
+		transition: all 0.5s ease;
 
-        &:hover,
-        &:focus-visible {
-            opacity: 0.5;
+		&:hover,
+		&:focus-visible {
+			opacity: 0.5;
 
-            transform: scale(1.1);
-        }
+			transform: scale(1.1);
+		}
 
-        @include abs.mq(600px, 0px) {
-            font-size: 1.2rem;
-        }
+		@include abs.mq(600px, 0px) {
+			font-size: 1.2rem;
+		}
 
-        @include abs.mq(1200px, 0px) {
-            font-size: 1.5rem;
-        }
-    }
+		@include abs.mq(1200px, 0px) {
+			font-size: 1.5rem;
+		}
+
+		&--notification {
+			position: absolute;
+			right: -0.5rem;
+			top: 0.1rem;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 1.25rem;
+			height: 1.25rem;
+
+			border-radius: 50%;
+
+			@include abs.mq(1000px, 0px) {
+				width: 1.5rem;
+				height: 1.5rem;
+			}
+
+			background-color: var(--color-primary);
+
+			color: var(--color-dark);
+		}
+	}
+}
+
+.notification--hiden {
+	display: none;
 }
