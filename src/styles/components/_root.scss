@@ -8,6 +8,10 @@
 	--color-light: hsl(0, 0%, 95%);
 	--color-light-transparent: hsla(0, 0%, 95%, 0.9);
 	--color-primary: hsl(175, 100%, 50%);
+
+	--nav-load-time: 300ms;
+	--nav-link-load-time: 500ms;
+	--article-load-delay: calc(var(--nav-load-time) + var(--nav-link-load-time) + 200ms);
 }
 
 body {

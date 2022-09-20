@@ -1,0 +1,126 @@
+@use "../abstracts" as abs;
+
+.about {
+	display: grid;
+	place-items: center;
+	gap: 1rem;
+	grid-template-columns: repeat(1, 1fr);
+	@include abs.mq(1000px, 0px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	margin: 1rem auto;
+	max-width: 80vw;
+
+	&__item {
+		padding: 2rem;
+		@include abs.mq(1000px, 0px) {
+			padding: 4rem;
+		}
+		width: fit-content;
+		border-radius: 100vmax;
+
+		background-color: var(--color-dark);
+		text-align: center;
+
+		animation-fill-mode: forwards;
+		opacity: 0;
+
+		color: var(--color-primary);
+		font-size: 1.5rem;
+		font-weight: bold;
+
+		&:nth-child(1) {
+			animation: about-item-load-left-1 300ms ease-in calc(var(--article-load-delay) + 400ms);
+			transform: translateX(-20px);
+		}
+
+		&:nth-child(2) {
+			animation: about-item-load-right-1 300ms ease-in calc(var(--article-load-delay) + 500ms);
+			transform: translateX(20px);
+		}
+
+		&:nth-child(3) {
+			animation: about-item-load-left-2 300ms ease-in calc(var(--article-load-delay) + 600ms);
+			transform: translateX(-20px);
+		}
+
+		&:nth-child(4) {
+			animation: about-item-load-right-2 300ms ease-in calc(var(--article-load-delay) + 700ms);
+			transform: translateX(20px);
+		}
+	}
+
+	&__undertext {
+		display: grid;
+		place-items: center;
+
+		padding-block: 3rem;
+		font-size: 2rem;
+
+		animation: about-undertext-load 300ms ease-in calc(var(--article-load-delay) + 800ms);
+		transform: translateY(20px);
+		animation-fill-mode: forwards;
+		opacity: 0;
+	}
+}
+
+@keyframes about-item-load-left-1 {
+	0% {
+		transform: translateX(-20px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes about-item-load-left-2 {
+	0% {
+		transform: translateX(-20px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes about-item-load-right-1 {
+	0% {
+		transform: translateX(20px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes about-item-load-right-2 {
+	0% {
+		transform: translateX(20px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes about-undertext-load {
+	0% {
+		transform: translateY(20px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
