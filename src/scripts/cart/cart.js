@@ -39,7 +39,6 @@ function addItemToCart(title, author, year, price, imageSrc) {
 	}
 	numberOfAlbumsInCart++;
 	cartNotification();
-	alert("Added item to cart!");
 
 	let cartRow = document.createElement("div");
 	cartRow.classList.add("cart__row");
@@ -75,7 +74,6 @@ function addItemToCart(title, author, year, price, imageSrc) {
 function removeRow(event) {
 	let buttonClicked = event.target;
 	buttonClicked.parentElement.remove();
-	alert("Item removed from cart!");
 
 	numberOfAlbumsInCart--;
 

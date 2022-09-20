@@ -1,6 +1,6 @@
 import "./main/favicon.png";
-import "./main/store1.jpg";
-import "./main/store2.jpg";
+import "./main/store1.png";
+import "./main/store2.png";
 import "./main/store3.jpg";
 import "./albums/Black_Sabbath/Master_of_Reality.jpg";
 import "./albums/Black_Sabbath/Paranoid.jpg";
