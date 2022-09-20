@@ -1,2 +1,1 @@
-- create about site
 - skratiti css i js gdje god je moguće
