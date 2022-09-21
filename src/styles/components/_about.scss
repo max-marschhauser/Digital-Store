@@ -60,7 +60,11 @@
 		a {
 			background-color: var(--color-dark);
 			border-radius: 100vmax;
-			padding: 0.5rem 1rem;
+			padding: 0.15rem 0.5rem;
+
+			@include abs.mq(1000px, 0px) {
+				padding: 0.5rem 1rem;
+			}
 
 			color: var(--color-primary);
 			text-decoration: none;
