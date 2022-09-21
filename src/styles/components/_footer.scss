@@ -1,45 +1,54 @@
 @use "../abstracts" as abs;
 
 .info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
 
-    padding: 1rem;
+	padding: 1rem;
 
-    background-color: var(--color-dark);
+	background-color: var(--color-dark);
 
-    color: var(--color-light);
+	color: var(--color-light);
 
-    &__item {
-        padding: 0.25rem;
-        text-align: center;
-        letter-spacing: 1.1px;
+	&__item {
+		padding: 0.25rem;
+		text-align: center;
+		letter-spacing: 1.1px;
 
-        span {
-            font-style: italic;
-        }
-    }
+		&--social {
+			font-size: 2rem;
+			padding-inline: 1rem;
+		}
 
-    h2 {
-        font-size: 1.5rem;
-    }
+		span {
+			font-style: italic;
+		}
+	}
 
-    a {
-        text-decoration: none;
-        color: var(--color-primary);
+	h2 {
+		font-size: 1.5rem;
+	}
 
-        cursor: pointer;
+	a {
+		text-decoration: none;
+		color: var(--color-primary);
 
-        transition: all 0.5s ease;
+		cursor: pointer;
 
-        &:hover,
-        &:focus {
-            color: var(--color-light);
+		transition: all 0.5s ease;
 
-            transform: scale(1.1);
-        }
-    }
+		&:hover,
+		&:focus-visible {
+			color: var(--color-light);
+		}
+	}
+
+	::selection {
+		background-color: var(--color-light-transparent);
+
+		color: var(--color-dark-transparent);
+	}
 }

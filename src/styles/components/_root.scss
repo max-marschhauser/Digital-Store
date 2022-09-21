@@ -56,3 +56,9 @@ body {
 		background: var(--color-dark);
 	}
 }
+
+::selection {
+	background-color: var(--color-dark-transparent);
+
+	color: var(--color-light-transparent);
+}

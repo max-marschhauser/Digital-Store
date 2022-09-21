@@ -4,24 +4,30 @@ const aboutPage = document.querySelectorAll("[data-about-page]");
 const storePage = document.querySelectorAll("[data-store-page]");
 const cartPage = document.querySelectorAll("[data-cart-page]");
 
-const aboutButtonSpa = document.querySelector("[data-about-button-SPA]");
-const storeButtonSpa = document.querySelector("[data-store-button-SPA]");
-const cartButtonSpa = document.querySelector("[data-cart-button-SPA]");
+const aboutButtonSpa = document.querySelectorAll("[data-about-button-SPA]");
+const storeButtonSpa = document.querySelectorAll("[data-store-button-SPA]");
+const cartButtonSpa = document.querySelectorAll("[data-cart-button-SPA]");
 
 let openedPage = "about";
 changePage();
 
-aboutButtonSpa.addEventListener("click", () => {
-	openedPage = "about";
-	changePage();
+aboutButtonSpa.forEach((button) => {
+	button.addEventListener("click", () => {
+		openedPage = "about";
+		changePage();
+	});
 });
-storeButtonSpa.addEventListener("click", () => {
-	openedPage = "store";
-	changePage();
+storeButtonSpa.forEach((button) => {
+	button.addEventListener("click", () => {
+		openedPage = "store";
+		changePage();
+	});
 });
-cartButtonSpa.addEventListener("click", () => {
-	openedPage = "cart";
-	changePage();
+cartButtonSpa.forEach((button) => {
+	button.addEventListener("click", () => {
+		openedPage = "cart";
+		changePage();
+	});
 });
 
 function changePage() {

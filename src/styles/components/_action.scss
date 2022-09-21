@@ -71,6 +71,14 @@
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 
+		&__grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			justify-content: center;
+			align-items: left;
+			gap: 0 2rem;
+		}
+
 		&__column {
 			display: flex;
 			flex-direction: column;
