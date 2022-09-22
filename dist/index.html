@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Digital store - Own YOUR music</title>
+		<link rel="icon" href="favicon.png" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,800;1,200&display=swap"
+			rel="stylesheet" />
+
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script defer src="bundle.js"></script></head>
+	<body id="top">
+		<div class="navbar">
+			<a href="#top" class="navbar__item" data-about-button-SPA>About</a>
+			<a href="#top" class="navbar__item" data-store-button-SPA>Store</a>
+			<a href="#top" class="navbar__item" data-cart-button-SPA
+				>Cart<span class="navbar__item--notification" data-cart-notification></span
+			></a>
+		</div>
+
+		<div class="hero">
+			<img src="store1.png" />
+			<img src="store2.png" />
+			<img src="store3.jpg" />
+			<h1>DIGITAL STORE</h1>
+		</div>
+
+		<div class="info">
+			<p class="info__item"><span>Adress:</span><br />Baker Street 221b, London</p>
+			<p class="info__item"><span>Working Hours:</span><br />Mon - Fri 10:00h - 18:00h</p>
+		</div>
+
+		<div data-about-page>
+			<div class="about__text">DIGITAL STORE - Own YOUR music!</div>
+			<div class="about">
+				<a href="#top" class="about__item" data-store-button-SPA>Vynil</a>
+				<a href="#top" class="about__item" data-store-button-SPA>CD</a>
+				<a href="#top" class="about__item" data-store-button-SPA>Timeless Classics</a>
+				<a href="#top" class="about__item" data-store-button-SPA>Latest Hits</a>
+			</div>
+			<div class="about__text">
+				...for all that and much more visit out <a href="#top" data-store-button-SPA>Store page</a>
+			</div>
+		</div>
+
+		<div data-store-page class="action">
+			<div class="action__button" data-filter-button>Filter</div>
+			<div class="action__button" data-search-button>Search</div>
+			<div class="action__button" data-sort-button>Sort</div>
+		</div>
+
+		<div data-store-page class="options" data-filter-selector>
+			<h3>Filter</h3>
+			<form class="options__form">
+				<div class="options__form__column">
+					<h4>Authors:</h4>
+					<div class="options__form__grid">
+						<div>
+							<input
+								type="checkbox"
+								id="blackSabbath"
+								value="Black Sabbath"
+								data-filter-option
+								data-filter-option-author />
+							<label for="blackSabbath">Black Sabbath</label>
+						</div>
+						<div>
+							<input
+								type="checkbox"
+								id="The Doors"
+								value="The Doors"
+								data-filter-option
+								data-filter-option-author />
+							<label for="The Doors">The Doors</label>
+						</div>
+						<div>
+							<input
+								type="checkbox"
+								id="Pink Floyd"
+								value="Pink Floyd"
+								data-filter-option
+								data-filter-option-author />
+							<label for="Pink Floyd">Pink Floyd</label>
+						</div>
+						<div>
+							<input
+								type="checkbox"
+								id="Deep Purple"
+								value="Deep Purple"
+								data-filter-option
+								data-filter-option-author />
+							<label for="Deep Purple">Deep Purple</label>
+						</div>
+						<div>
+							<input
+								type="checkbox"
+								id="Led Zeppelin"
+								value="Led Zeppelin"
+								data-filter-option
+								data-filter-option-author />
+							<label for="Led Zeppelin">Led Zeppelin</label>
+						</div>
+					</div>
+				</div>
+				<div class="options__form__column">
+					<h4>Year:</h4>
+					<div>
+						<input
+							type="checkbox"
+							id="1967.-1971."
+							value="1967.-1971."
+							data-filter-option
+							data-filter-option-year />
+						<label for="1967.-1971.">1967.-1971.</label>
+					</div>
+					<div>
+						<input
+							type="checkbox"
+							id="1972.-1975."
+							value="1972.-1975."
+							data-filter-option
+							data-filter-option-year />
+						<label for="1972.-1975.">1972.-1975.</label>
+					</div>
+					<div>
+						<input
+							type="checkbox"
+							id="1976.-2007."
+							value="1976.-2007."
+							data-filter-option
+							data-filter-option-year />
+						<label for="1976.-2007.">1976.-2007.</label>
+					</div>
+				</div>
+				<div class="options__form__column">
+					<h4>Price</h4>
+					<div>
+						<input type="checkbox" id="5€-10€" value="5€-10€" data-filter-option data-filter-option-price />
+						<label for="5€-10€">5€-10€</label>
+					</div>
+					<div>
+						<input
+							type="checkbox"
+							id="10€-15€"
+							value="10€-15€"
+							data-filter-option
+							data-filter-option-price />
+						<label for="10€-15€">10€-15€</label>
+					</div>
+					<div>
+						<input
+							type="checkbox"
+							id="15€-30€"
+							value="15€-30€"
+							data-filter-option
+							data-filter-option-price />
+						<label for="15€-30€">15€-30€</label>
+					</div>
+				</div>
+			</form>
+			<button type="button" data-filter-checked-button>Filter Selected</button>
+		</div>
+
+		<div data-store-page class="options" data-search-selector>
+			<h3>Search</h3>
+			<form>
+				<input type="search" id="search" data-search-input />
+			</form>
+		</div>
+
+		<div data-store-page class="options" data-sort-selector>
+			<h3>Sort</h3>
+			<label for="sort">Sort by:</label>
+
+			<select name="sort" id="sort" data-sort-option>
+				<option value="Author A-Z">Author A-Z</option>
+				<option value="Author Z-A">Author Z-A</option>
+				<option value="Title A-Z">Title A-Z</option>
+				<option value="Title Z-A">Title Z-A</option>
+				<option value="Year">Year</option>
+				<option value="Year Reverse">Year Reverse</option>
+				<option value="Price">Price</option>
+				<option value="Price Reverse">Price Reverse</option>
+			</select>
+			<br />
+			<button type="button" data-sort-selected-button>Sort</button>
+		</div>
+
+		<main data-store-page>
+			<h2>Albums</h2>
+			<div class="albums" data-albums></div>
+		</main>
+
+		<section data-cart-page class="cart">
+			<h2>CART</h2>
+			<div class="cart__row">
+				<h3>ITEM</h3>
+				<h3>PRICE</h3>
+				<h3>QUANTITY</h3>
+			</div>
+
+			<div data-selected-products></div>
+
+			<div class="cart__total">TOTAL: <span data-total-price>0.00€</span></div>
+			<div class="cart__purchase">
+				<button class="cart__purchase__button" type="button" data-purchase-button>PURCHASE</button>
+			</div>
+		</section>
+
+		<footer class="info">
+			<h2 class="info__item">DIGITAL STORE</h2>
+			<p class="info__item"><span>Adress:</span><br />Baker Street 221b, London</p>
+			<p class="info__item"><span>Working Hours:</span><br />Mon - Fri 10:00h - 18:00h</p>
+			<div>
+				<a class="info__item--social" href="https://www.facebook.com/" target="_blank"
+					><ion-icon name="logo-facebook"></ion-icon
+				></a>
+				<a class="info__item--social" href="https://www.instagram.com/" target="_blank"
+					><ion-icon name="logo-instagram"></ion-icon
+				></a>
+				<a class="info__item--social" href="https://twitter.com/?lang=hr" target="_blank"
+					><ion-icon name="logo-twitter"></ion-icon
+				></a>
+				<a class="info__item--social" href="https://www.pinterest.com/" target="_blank"
+					><ion-icon name="logo-pinterest"></ion-icon
+				></a>
+			</div>
+			<div class="info__item"><span>Page author:</span><br />Max Marschhauser</div>
+			<div class="info__item"><span>e-mail:</span><br />max.marschhauser<wbr />@gmail.com</div>
+			<div class="info__item"><span data-copyright-date></span><br />All rights reserved</div>
+			<a href="#top" class="info__item">BACK TO TOP</a>
+		</footer>
+	</body>
+</html>
